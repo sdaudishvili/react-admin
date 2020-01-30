@@ -22,10 +22,7 @@ function About() {
     setContent(data)
   }
 
-  function onSubmit() {
-    console.log('title', title)
-    console.log('content', content)
-  }
+  function onSubmit() {}
 
   function onCancel() {
     setTitle('')

@@ -20,11 +20,7 @@ function Contacts() {
     }
   }
 
-  function onSubmit() {
-    console.log('mobile', mobile)
-    console.log('email', email)
-    console.log('address', address)
-  }
+  function onSubmit() {}
 
   function onCancel() {
     setMobile('')
@@ -48,7 +44,6 @@ function Contacts() {
       </div>
     </>
   )
-
   return (
     <main id="main" role="main" className="contacts-wrapper">
       <PageHeader title="Contacts" />
