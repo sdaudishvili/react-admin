@@ -1,0 +1,170 @@
+.font {
+  &--size {
+    &--h-xv {
+      font-size: 15em;
+    }
+
+    &--h-xi-v {
+      font-size: 7.5em;
+      @include text-crop($line-height: 1.2, $top-adjustment: -11px, $bottom-adjustment: -15px);
+
+      @media only screen and (max-width: 1360px) {
+        font-size: 5em;
+      }
+
+      @media only screen and (max-width: 1024px) {
+        font-size: 7.5em;
+        @include text-crop($line-height: 1.2, $top-adjustment: -6px, $bottom-adjustment: -11px);
+      }
+
+      @media only screen and (max-width: 992px) {
+        font-size: 6rem;
+        @include text-crop($line-height: 1.2, $top-adjustment: 0px, $bottom-adjustment: 1px);
+      }
+    }
+
+    &--h-x {
+      font-size: 7em;
+      @include text-crop($line-height: 1.2, $top-adjustment: -7px, $bottom-adjustment: -6px);
+
+      @media only screen and (max-width: 992px) {
+        font-size: 4rem;
+        @include text-crop($line-height: 1.2, $top-adjustment: 0px, $bottom-adjustment: 1px);
+      }
+    }
+
+    &--h-ix-iv {
+      font-size: 9.4em;
+    }
+
+    &--h-ix {
+      font-size: 9em;
+      @include text-crop($line-height: 1.2, $top-adjustment: -7px, $bottom-adjustment: -6px);
+
+      @media only screen and (max-width: 992px) {
+        font-size: 4em;
+        @include text-crop($line-height: 1.2, $top-adjustment: 0px, $bottom-adjustment: 1px);
+      }
+    }
+
+    &--h-vi {
+      font-size: 6em;
+
+      @media only screen and (max-width: 992px) {
+        font-size: 3em;
+      }
+    }
+
+    &--h-v {
+      font-size: 5em;
+    }
+
+    &--h-iv {
+      font-size: 3em;
+    }
+
+    // virtual
+    &--h-iv-ii {
+      font-size: 4.2em;
+    }
+
+    &--h-iv-vii {
+      font-size: 4.7em;
+    }
+
+    &--h-iii-iv {
+      font-size: 3.4em;
+    }
+
+    &--h-iii {
+      font-size: 2.5em;
+    }
+
+    &--h-ii-vi {
+      font-size: 2.6em;
+    }
+
+    &--h-ii {
+      font-size: 2em;
+      line-height: 1.6;
+
+      @media only screen and (max-width: 992px) {
+        font-size: 16px;
+      }
+    }
+
+    &--h-i-vii {
+      font-size: 1.8em;
+
+      @media only screen and (max-width: 992px) {
+        font-size: 16px;
+      }
+    }
+
+    &--h-i-vi {
+      font-size: 1.6em;
+    }
+
+    &--h-i-v {
+      font-size: 1.4em;
+    }
+    &--input {
+      font-size: 13px;
+    }
+  }
+
+  &--family {
+
+    // noto-sans
+    &--i {
+      @include fonts('en-US', 'NotoSansDisplay-ExtraBold');
+      @include fonts('ka-GE', 'HelveticaNeueLTGEOW82-75Bd');
+    }
+
+    &--lang {
+      @include fonts('en-US', 'HelveticaNeueLTGEOW82-75Bd');
+      @include fonts('ka-GE', 'HelveticaNeueLTGEOW82-75Bd');
+    }
+
+    &--ii {
+      @include fonts('en-US', 'NotoSans-Medium');
+      @include fonts('ka-GE', 'HelveticaNeueLTGEOW82-65Md');
+    }
+
+    &--iii {
+      font-family: 'NotoSans-Regular';
+    }
+
+    &--iv {
+      @include fonts('en-US', 'NotoSans-ExtraLight');
+      @include fonts('ka-GE', 'HelveticaNeueLTGEOW82-55Rm');
+    }
+
+    // playfair
+    &--v {
+      @include fonts('en-US', 'PlayfairDisplay-Bold');
+      @include fonts('ka-GE', 'HelveticaNeueLTGEOW82-75Bd');
+    }
+
+    &--vi {
+      @include fonts('en-US', 'PlayfairDisplay-Regular');
+      @include fonts('ka-GE', 'HelveticaNeueLTGEOW82-75Bd');
+    }
+
+    &--vii {
+      @include fonts('en-US', 'PlayfairDisplay-Black');
+      @include fonts('ka-GE', 'HelveticaNeueLTGEOW82-75Bd');
+    }
+
+    &--viii {
+      @include fonts('en-US', 'PlayfairDisplay-Italic');
+      @include fonts('ka-GE', 'HelveticaNeueLTGEOW82-45Lt-Regular');
+    }
+  }
+
+  &--style {
+    &--italic {
+      font-style: italic;
+    }
+  }
+}

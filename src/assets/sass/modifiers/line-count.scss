@@ -1,0 +1,14 @@
+.line-count {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    &--ii {
+        -webkit-line-clamp: inherit;
+     }
+    &--iii {
+       -webkit-line-clamp: inherit;
+    }
+    &--iv {
+        -webkit-line-clamp: inherit;
+     }
+}

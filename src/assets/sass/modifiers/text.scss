@@ -1,0 +1,31 @@
+.text {
+  &--align {
+    &--left {
+      text-align: left;
+    }
+
+    &--right {
+      text-align: right;
+    }
+
+    &--center {
+      text-align: center;
+    }
+  }
+
+  &--transform {
+    &--uppercase {
+      [lang="en-US"] &{
+        text-transform: uppercase;
+      }
+    }
+  }
+
+  &--decoration {
+    &--underline {}
+
+    &--overline {
+      text-decoration: overline;
+    }
+  }
+}

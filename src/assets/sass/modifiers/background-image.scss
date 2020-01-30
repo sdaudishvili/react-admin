@@ -1,0 +1,12 @@
+.background {
+    &--size {
+        &--cover {
+            background-size: cover;
+        }
+    }
+    &--position  {
+        &--center {
+            background-position: center center;
+        }
+    }
+}

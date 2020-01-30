@@ -1,0 +1,56 @@
+//
+// Global styling
+//
+html,
+body {
+  min-width: 320px;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  touch-action: manipulation;
+}
+
+html {
+  font-size: var(--base-font-size);
+  line-height: var(--base-line-height);
+  font-size: 62.5%;
+  overflow-x: hidden;
+
+  @media only screen and (max-width: 1560px) {
+    font-size: 52.5%;
+  }
+
+  @media only screen and (max-width: 1280px) {
+    font-size: 41.5%;
+  }
+}
+
+body {
+  font-family: var(--base-font-family);
+  text-rendering: optimizeLegibility;
+  background-color: $color-base-background;
+  color: $color-base-text;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--body-background-color);
+}
+
+html, body, #root {
+  height: 100%
+}
+#main {
+  padding: 30px;
+}
+
+a {
+  color: var(--base-text-color);
+}
+
+.page-enter-active,
+.page-leave-active {
+  transition: opacity .1s;
+}
+
+.page-enter,
+.page-leave-to {
+  opacity: 0;
+}

@@ -1,0 +1,46 @@
+//import variables,functions,mixins of scss  - not compile to css
+@import 'app.scss';
+
+/* Import Css Root Variables */
+@import
+  'root/index';
+
+/* Import Generic - Low Specificity, far reaching styles eg. resets */
+@import
+  'generic/reset',
+  'generic/sanitize';
+
+/* Base */
+@import
+  'base/global',
+  'base/typography';
+
+/* Objects - Objects and Design Patterns */
+@import
+  'objects/avatar',
+  'objects/line',
+  'objects/filtered-image';
+
+/* Animations */
+@import
+  "animations/bouncing";
+
+
+/* Overrides - High specificity classes, overrides and helper classes */
+@import
+  'modifiers/background-image',
+  'modifiers/cursor',
+  'modifiers/display',
+  'modifiers/font',
+  'modifiers/opacity',
+  'modifiers/overflow',
+  'modifiers/position',
+  'modifiers/size',
+  'modifiers/text',
+  'modifiers/line-count',
+  'modifiers/border',
+  'modifiers/shame';
+
+  /* Import vendors */
+@import
+'vendors/grid';
