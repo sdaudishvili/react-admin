@@ -16,6 +16,7 @@ function CKeditorWrapper(props) {
           onChange={(event, editor) => {
             props.handleInput(editor.getData())
           }}
+          config={{ width: '10%' }}
         />
       </div>
     </div>

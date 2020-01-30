@@ -1,53 +1,53 @@
 .main-container-wrapper {
-    padding-top: 70px;
-    min-height: 100%;
+  padding-top: 70px;
+  min-height: 100%;
 }
 .side-bar {
-    width: 275px;
-    padding: 30px 0;
-    background-color: #282733;
-    color: #9ca1c3;
+  width: 275px;
+  padding: 30px 0;
+  background-color: #282733;
+  color: #9ca1c3;
 }
 
 .page-content {
-    flex: 1;
-    margin-bottom: 70px;
+  flex: 1;
+  margin-bottom: 70px;
 }
 
-.header{
-    height: 70px;
-    box-shadow: 0 1px 15px 1px rgba(69,65,78,.1);
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 0;
-    background-color: var(--header-color);
-    z-index: 1;
+.header {
+  height: 70px;
+  box-shadow: 0 1px 15px 1px rgba(69, 65, 78, 0.1);
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  background-color: var(--header-color);
+  z-index: 2;
 }
 
 .footer {
-    height: 70px;
-    box-shadow: 0 1px 15px 1px rgba(69,65,78,.1);
-    margin-left: 275px;
-    color: red;
+  height: 70px;
+  box-shadow: 0 1px 15px 1px rgba(69, 65, 78, 0.1);
+  margin-left: 275px;
+  color: red;
 }
 
 #main {
-    .section-wrapper {
-        -webkit-box-shadow: 0 1px 15px 1px rgba(69,65,78,.08);
-        -moz-box-shadow: 0 1px 15px 1px rgba(69,65,78,.08);
-        box-shadow: 0 1px 15px 1px rgba(69,65,78,.08);
-        background-color: #fff;
-        &__header {
-            padding: 20px 30px;
-            border-bottom: 1px solid var(--border-color);
-        }
-        &__body {
-            padding: 0 30px;
-            &__item {
-                padding: 20px;
-                border-bottom: 1px solid var(--border-color);
-            }
-        }
+  .section-wrapper {
+    -webkit-box-shadow: 0 1px 15px 1px rgba(69, 65, 78, 0.08);
+    -moz-box-shadow: 0 1px 15px 1px rgba(69, 65, 78, 0.08);
+    box-shadow: 0 1px 15px 1px rgba(69, 65, 78, 0.08);
+    background-color: #fff;
+    &__header {
+      padding: 20px 30px;
+      border-bottom: 1px solid var(--border-color);
     }
+    &__body {
+      padding: 0 30px;
+      &__item {
+        padding: 20px;
+        border-bottom: 1px solid var(--border-color);
+      }
+    }
+  }
 }

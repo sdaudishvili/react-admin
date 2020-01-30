@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import PageHeader from '../components/atoms/PageHeader'
 import SectionHeader from '../components/atoms/SectionHeader'
 import Input from '../components/molecules/Input'
-import CKeditorWrapper from '../components/molecules/CKeditorWrapper'
 import TwoButtons from '../components/molecules/TwoButtons'
+import TinyMCE from '../components/molecules/TinyMCE'
 
 function About() {
   const [title, setTitle] = useState('')
@@ -18,8 +18,8 @@ function About() {
     }
   }
 
-  function handleCkInput(data) {
-    setContent(data)
+  function handleTinyInput(e) {
+    setContent(e.target.getContent())
   }
 
   function onSubmit() {}
@@ -35,14 +35,13 @@ function About() {
         <Input type="text" label="Title" value={title} handleInput={handleInput} name="title" />
       </div>
       <div className="section-wrapper__body__item">
-        <CKeditorWrapper data={content} label="Content" handleInput={handleCkInput} name="content" />
+        <TinyMCE data={content} label="Content" handleInput={handleTinyInput} name="content" />
       </div>
       <div className="section-wrapper__body__item">
         <TwoButtons onSubmit={onSubmit} onCancel={onCancel} />
       </div>
     </>
   )
-
   return (
     <main id="main" role="main" className="about-wrapper">
       <PageHeader title="About" />
