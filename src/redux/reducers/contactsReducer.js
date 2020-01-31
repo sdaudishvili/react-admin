@@ -7,8 +7,10 @@ const initialState = {
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_CONTACTS: {
-      console.log(action)
-      return state
+      return {
+        ...state,
+        data: action.payload
+      }
     }
     default:
       return state

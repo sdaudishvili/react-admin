@@ -9,13 +9,15 @@ export const setContacts = (payload) => {
 }
 
 export const fetchContacts = () => {
-  return () => {
-    try {
-      const data = axios.get('https://api.mediacritic.ge/api/contact')
-      console.log(data)
-      // dispatch(setContacts(data))
-    } catch (err) {
-      console.log(err)
-    }
+  return (dispatch) => {
+    axios
+      .get('https://api.mediacritic.ge/api/contact')
+      .then((response) => {
+        const data = response.data.data
+        dispatch(setContacts(data))
+      })
+      .catch((error) => {
+        console.log(error)
+      })
   }
 }

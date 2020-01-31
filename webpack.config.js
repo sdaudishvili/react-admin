@@ -8,7 +8,17 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: ['babel-loader', 'eslint-loader']
+        use: [
+          {
+            loader: 'babel-loader'
+          },
+          {
+            loader: 'eslint-loader'
+            // options: {
+            //   quiet: true
+            // }
+          }
+        ]
       },
       {
         test: /\.html$/,

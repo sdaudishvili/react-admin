@@ -12,13 +12,11 @@ function Menu() {
     const { value } = e.target
     setInp(value)
     setSlug(slugGenerator(value.toLowerCase()))
-    // console.log(slug)
   }
 
   function getSlugInpt(e) {
     const { value } = e.target
     setSlug(`${value}`)
-    // console.log(slug)
   }
 
   const elems = (

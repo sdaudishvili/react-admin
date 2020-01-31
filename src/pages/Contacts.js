@@ -1,13 +1,24 @@
-import React, { useState } from 'react'
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+import React, { useState, useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 import PageHeader from '../components/atoms/PageHeader'
 import SectionHeader from '../components/atoms/SectionHeader'
 import Input from '../components/molecules/Input'
 import TwoButtons from '../components/molecules/TwoButtons'
 
+import { fetchContacts } from '../redux/actions/contactsActions'
+
 function Contacts() {
+  const curState = useSelector((state) => state.contacts.data)
+  const dispatch = useDispatch()
+  console.log(curState)
   const [mobile, setMobile] = useState('')
   const [email, setEmail] = useState('')
   const [address, setAddress] = useState('')
+
+  useEffect(() => {
+    dispatch(fetchContacts())
+  }, [dispatch])
 
   function handleInput(event) {
     const { value } = event.target
