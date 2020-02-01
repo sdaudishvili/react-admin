@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import PageHeader from '../components/atoms/PageHeader'
@@ -9,9 +8,8 @@ import TwoButtons from '../components/molecules/TwoButtons'
 import { fetchContacts } from '../redux/actions/contactsActions'
 
 function Contacts() {
-  const curState = useSelector((state) => state.contacts.data)
+  const data = useSelector((state) => state.contacts.data)
   const dispatch = useDispatch()
-  console.log(curState)
   const [mobile, setMobile] = useState('')
   const [email, setEmail] = useState('')
   const [address, setAddress] = useState('')
@@ -19,6 +17,12 @@ function Contacts() {
   useEffect(() => {
     dispatch(fetchContacts())
   }, [dispatch])
+
+  useEffect(() => {
+    setMobile(data.phone)
+    setEmail(data.email)
+    setAddress(data.address)
+  }, [data.address, data.email, data.phone])
 
   function handleInput(event) {
     const { value } = event.target
@@ -42,13 +46,13 @@ function Contacts() {
   const elems = (
     <>
       <div className="section-wrapper__body__item">
-        <Input type="text" label="Mobile" value={mobile} handleInput={handleInput} name="mobile" />
+        <Input type="text" label="Mobile" value={mobile || ''} handleInput={handleInput} name="mobile" />
       </div>
       <div className="section-wrapper__body__item">
-        <Input type="text" label="Email" value={email} handleInput={handleInput} name="email" />
+        <Input type="text" label="Email" value={email || ''} handleInput={handleInput} name="email" />
       </div>
       <div className="section-wrapper__body__item">
-        <Input type="text" label="Address" value={address} handleInput={handleInput} name="address" />
+        <Input type="text" label="Address" value={address || ''} handleInput={handleInput} name="address" />
       </div>
       <div className="section-wrapper__body__item">
         <TwoButtons onSubmit={onSubmit} onCancel={onCancel} />

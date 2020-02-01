@@ -11,9 +11,13 @@ module.exports = {
     'prettier/standard',
     'plugin:jsx-a11y/recommended'
   ],
+  globals: {
+    test: true,
+    axios: true
+  },
   plugins: ['jsx-a11y', 'react-hooks'],
   rules: {
-    'no-console': 1,
+    'no-console': [1, { allow: ['warn', 'error'] }],
     'react/destructuring-assignment': 0,
     'react/jsx-filename-extension': [
       1,

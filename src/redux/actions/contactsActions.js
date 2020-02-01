@@ -1,4 +1,3 @@
-import axios from 'axios'
 import { SET_CONTACTS } from './actionTypes'
 
 export const setContacts = (payload) => {
@@ -10,14 +9,14 @@ export const setContacts = (payload) => {
 
 export const fetchContacts = () => {
   return (dispatch) => {
-    axios
-      .get('https://api.mediacritic.ge/api/contact')
+    axios.default
+      .get('contacts')
       .then((response) => {
-        const data = response.data.data
+        const data = response.data
         dispatch(setContacts(data))
       })
       .catch((error) => {
-        console.log(error)
+        console.error(error)
       })
   }
 }

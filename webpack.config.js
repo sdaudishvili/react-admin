@@ -1,6 +1,6 @@
+const webpack = require('webpack')
 const HtmlWebPackPlugin = require('html-webpack-plugin')
-
-// eslint-disable-next-line no-new
+const path = require('path')
 
 module.exports = {
   module: {
@@ -8,17 +8,7 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: [
-          {
-            loader: 'babel-loader'
-          },
-          {
-            loader: 'eslint-loader'
-            // options: {
-            //   quiet: true
-            // }
-          }
-        ]
+        use: ['babel-loader', 'eslint-loader']
       },
       {
         test: /\.html$/,
@@ -42,13 +32,10 @@ module.exports = {
           // Compiles Sass to CSS
           'sass-loader'
         ]
-      },
-      {
-        test: /ckeditor5-[^/\\]+[/\\]theme[/\\]icons[/\\][^/\\]+\.svg$/,
-        use: ['raw-loader']
       }
     ]
   },
+  resolve: {},
   devServer: {
     historyApiFallback: true,
     port: 3000,
@@ -58,6 +45,10 @@ module.exports = {
     new HtmlWebPackPlugin({
       template: './src/index.html',
       filename: './index.html'
+    }),
+    new webpack.ProvidePlugin({
+      // eslint-disable-next-line no-undef
+      axios: path.resolve(__dirname, 'src/plugins/axios')
     })
   ]
 }
