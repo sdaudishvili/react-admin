@@ -51,3 +51,20 @@
     }
   }
 }
+
+.loader {
+  position: fixed;
+  left: calc(50% + 275px / 2);
+  top: calc(50%);
+
+  &:before {
+    content: '';
+    position: fixed;
+    left: 275px;
+    top: 70px;
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    opacity: 0.5;
+  }
+}

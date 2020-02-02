@@ -1,41 +1,60 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { withRouter } from 'react-router-dom'
+import Loader from '../components/molecules/Loader'
 import PageHeader from '../components/atoms/PageHeader'
 import SectionHeader from '../components/atoms/SectionHeader'
 import Input from '../components/molecules/Input'
 import TwoButtons from '../components/molecules/TwoButtons'
 import TinyMCE from '../components/molecules/TinyMCE'
 
-function About() {
-  const [title, setTitle] = useState('')
-  const [content, setContent] = useState('')
+import { fetchAbout, updateAbout } from '../redux/actions/aboutActions'
+
+function About(props) {
+  const about = useSelector((state) => state.about)
+  const dispatch = useDispatch()
+  const [data, setData] = useState('')
+
+  useEffect(() => {
+    dispatch(fetchAbout())
+  }, [dispatch])
+
+  useEffect(() => {
+    setData({ title: about.data.title, content: about.data.content })
+  }, [about.data.content, about.data.title])
 
   function handleInput(event) {
     const { value } = event.target
-    if (event.target.name === 'title') {
-      setTitle(value)
-    } else if (event.target.name === 'content') {
-      setContent(value)
-    }
+    setData({ ...data, [event.target.name]: value })
   }
 
   function handleTinyInput(e) {
-    setContent(e.target.getContent())
+    setData({ ...data, content: e.target.getContent() })
   }
 
-  function onSubmit() {}
+  function onSubmit() {
+    dispatch(updateAbout(data))
+    props.history.push('/')
+  }
 
   function onCancel() {
-    setTitle('')
-    setContent('')
+    props.history.push('/')
   }
 
-  const elems = (
+  const elem = about.loading ? (
+    <Loader loading={about.loading} />
+  ) : (
     <>
       <div className="section-wrapper__body__item">
-        <Input type="text" label="Title" value={title} handleInput={handleInput} name="title" />
+        <Input type="text" label="Title" value={data.title || ''} handleInput={handleInput} name="title" />
       </div>
       <div className="section-wrapper__body__item">
-        <TinyMCE data={content} label="Content" handleInput={handleTinyInput} name="content" />
+        <TinyMCE
+          initialValue={data.content || ''}
+          label="Content"
+          handleInput={handleTinyInput}
+          name="content"
+        />
       </div>
       <div className="section-wrapper__body__item">
         <TwoButtons onSubmit={onSubmit} onCancel={onCancel} />
@@ -49,10 +68,10 @@ function About() {
         <div className="section-wrapper__header">
           <SectionHeader title="Information" />
         </div>
-        <div className="section-wrapper__body">{elems}</div>
+        <div className="section-wrapper__body">{elem}</div>
       </section>
     </main>
   )
 }
 
-export default About
+export default withRouter(About)

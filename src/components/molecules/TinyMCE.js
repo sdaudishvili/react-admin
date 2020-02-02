@@ -28,7 +28,7 @@ function TinyMCE(props) {
       <div className="col-lg-8">
         <Editor
           apiKey={apiKey}
-          initialValue="<p>This is the initial content of the editor</p>"
+          initialValue={props.initialValue}
           init={TinyInit}
           onChange={props.handleInput}
         />

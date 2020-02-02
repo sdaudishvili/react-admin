@@ -1,15 +1,35 @@
-import { SET_CONTACTS } from '../actions/actionTypes'
+import { SET_CONTACTS, SET_CONTACTS_ERROR, SET_CONTACTS_LOADING } from '../actions/actionTypes'
 
 const initialState = {
-  data: {}
+  loading: false,
+  data: {},
+  error: {}
 }
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
+    case SET_CONTACTS_LOADING: {
+      return {
+        ...state,
+        loading: true,
+        data: {},
+        error: {}
+      }
+    }
     case SET_CONTACTS: {
       return {
         ...state,
-        data: action.payload
+        loading: false,
+        data: action.payload,
+        error: {}
+      }
+    }
+    case SET_CONTACTS_ERROR: {
+      return {
+        ...state,
+        loading: false,
+        data: {},
+        error: action.payload
       }
     }
     default:

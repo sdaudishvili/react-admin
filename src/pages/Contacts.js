@@ -1,58 +1,58 @@
 import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import { withRouter } from 'react-router-dom'
+import Loader from '../components/molecules/Loader'
 import PageHeader from '../components/atoms/PageHeader'
 import SectionHeader from '../components/atoms/SectionHeader'
 import Input from '../components/molecules/Input'
 import TwoButtons from '../components/molecules/TwoButtons'
 
-import { fetchContacts } from '../redux/actions/contactsActions'
+import { fetchContacts, updateContacts } from '../redux/actions/contactsActions'
 
-function Contacts() {
-  const data = useSelector((state) => state.contacts.data)
+function Contacts(props) {
+  const contacts = useSelector((state) => state.contacts)
   const dispatch = useDispatch()
-  const [mobile, setMobile] = useState('')
-  const [email, setEmail] = useState('')
-  const [address, setAddress] = useState('')
-
+  const [data, setData] = useState('')
   useEffect(() => {
     dispatch(fetchContacts())
   }, [dispatch])
 
   useEffect(() => {
-    setMobile(data.phone)
-    setEmail(data.email)
-    setAddress(data.address)
-  }, [data.address, data.email, data.phone])
+    setData({ phone: contacts.data.phone, email: contacts.data.email, address: contacts.data.address })
+  }, [contacts.data.address, contacts.data.email, contacts.data.phone])
 
   function handleInput(event) {
     const { value } = event.target
-    if (event.target.name === 'mobile') {
-      setMobile(value)
-    } else if (event.target.name === 'email') {
-      setEmail(value)
-    } else if (event.target.name === 'address') {
-      setAddress(value)
-    }
+    setData({ ...data, [event.target.name]: value })
   }
 
-  function onSubmit() {}
+  function onSubmit() {
+    dispatch(updateContacts(data))
+    props.history.push('/')
+  }
 
   function onCancel() {
-    setMobile('')
-    setEmail('')
-    setAddress('')
+    props.history.push('/')
   }
 
-  const elems = (
+  const elem = contacts.loading ? (
+    <Loader loading={contacts.loading} />
+  ) : (
     <>
       <div className="section-wrapper__body__item">
-        <Input type="text" label="Mobile" value={mobile || ''} handleInput={handleInput} name="mobile" />
+        <Input type="text" label="Mobile" value={data.phone || ''} handleInput={handleInput} name="phone" />
       </div>
       <div className="section-wrapper__body__item">
-        <Input type="text" label="Email" value={email || ''} handleInput={handleInput} name="email" />
+        <Input type="text" label="Email" value={data.email || ''} handleInput={handleInput} name="email" />
       </div>
       <div className="section-wrapper__body__item">
-        <Input type="text" label="Address" value={address || ''} handleInput={handleInput} name="address" />
+        <Input
+          type="text"
+          label="Address"
+          value={data.address || ''}
+          handleInput={handleInput}
+          name="address"
+        />
       </div>
       <div className="section-wrapper__body__item">
         <TwoButtons onSubmit={onSubmit} onCancel={onCancel} />
@@ -66,10 +66,10 @@ function Contacts() {
         <div className="section-wrapper__header">
           <SectionHeader title="Information" />
         </div>
-        <div className="section-wrapper__body">{elems}</div>
+        <div className="section-wrapper__body">{elem}</div>
       </section>
     </main>
   )
 }
 
-export default Contacts
+export default withRouter(Contacts)

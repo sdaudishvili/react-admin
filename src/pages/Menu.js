@@ -18,7 +18,6 @@ function Menu() {
     const { value } = e.target
     setSlug(`${value}`)
   }
-
   const elems = (
     <>
       <div className="section-wrapper__body__item">
