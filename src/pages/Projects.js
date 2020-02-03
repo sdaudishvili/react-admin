@@ -1,5 +1,3 @@
-/* eslint-disable no-shadow */
-/* eslint-disable no-use-before-define */
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import PageHeader from '../components/atoms/PageHeader'
@@ -9,8 +7,6 @@ import TinyMCE from '../components/molecules/TinyMCE'
 import TwoButtons from '../components/molecules/TwoButtons'
 import ImageUploader from '../components/molecules/ImageUploader'
 import { uploadImage } from '../redux/actions/imageActions'
-
-require('babel-polyfill')
 
 // http://localhost:3001/images/
 
@@ -30,7 +26,7 @@ function About() {
   }
 
   function handleTinyInput(e) {
-    setData({ ...data, [e.target.name]: e.target.getContent() })
+    setData({ ...data, content: e.target.getContent() })
   }
 
   function onSubmit() {
