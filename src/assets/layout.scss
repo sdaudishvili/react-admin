@@ -48,6 +48,12 @@
         padding: 20px;
         border-bottom: 1px solid var(--border-color);
       }
+      &__image {
+        img {
+          width: 30%;
+          margin-left: 35%;
+        }
+      }
     }
   }
 }
@@ -67,4 +73,13 @@
     background-color: white;
     opacity: 0.5;
   }
+}
+
+.notification {
+  width: 300px;
+  height: 70px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  background-color: green;
 }

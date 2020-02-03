@@ -35,9 +35,7 @@ function Contacts(props) {
     props.history.push('/')
   }
 
-  const elem = contacts.loading ? (
-    <Loader loading={contacts.loading} />
-  ) : (
+  const elem = (
     <>
       <div className="section-wrapper__body__item">
         <Input type="text" label="Mobile" value={data.phone || ''} handleInput={handleInput} name="phone" />
@@ -67,6 +65,7 @@ function Contacts(props) {
           <SectionHeader title="Information" />
         </div>
         <div className="section-wrapper__body">{elem}</div>
+        {contacts.loading && <Loader loading={contacts.loading} />}
       </section>
     </main>
   )

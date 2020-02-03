@@ -5,6 +5,7 @@ function Home() {
   return (
     <main id="main" role="main" className="home-wrapper">
       <PageHeader title="Home" />
+      <input type="file" />
     </main>
   )
 }

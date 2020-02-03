@@ -7,6 +7,9 @@ import store from './redux/store'
 import './assets/App.scss'
 import './assets/sass/style.scss'
 
+require('babel-core/register')
+require('babel-polyfill')
+
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
