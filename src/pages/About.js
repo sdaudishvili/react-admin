@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-import Loader from '../components/molecules/Loader'
 import PageHeader from '../components/atoms/PageHeader'
 import SectionHeader from '../components/atoms/SectionHeader'
 import Input from '../components/molecules/Input'
@@ -34,16 +33,13 @@ function About(props) {
 
   function onSubmit() {
     dispatch(updateAbout(data))
-    props.history.push('/')
   }
 
   function onCancel() {
     props.history.push('/')
   }
 
-  const elem = about.loading ? (
-    <Loader loading={about.loading} />
-  ) : (
+  const elem = (
     <>
       <div className="section-wrapper__body__item">
         <Input type="text" label="Title" value={data.title || ''} handleInput={handleInput} name="title" />

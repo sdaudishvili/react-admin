@@ -2,11 +2,13 @@ import { combineReducers } from 'redux'
 import contactsReducer from './reducers/contactsReducer'
 import aboutReducer from './reducers/aboutReducer'
 import imageReducer from './reducers/imageReducer'
+import notificationReducer from './reducers/notificationReducer'
 
 const rootReducer = combineReducers({
   contacts: contactsReducer,
   about: aboutReducer,
-  uploadedImage: imageReducer
+  uploadedImage: imageReducer,
+  notifs: notificationReducer
 })
 
 export default rootReducer

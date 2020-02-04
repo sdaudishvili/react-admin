@@ -1,14 +1,18 @@
 import React from 'react'
 
+import { useSelector } from 'react-redux'
 // import Footer from './layout/Footer'
 import Header from './layout/Header'
 import SideBar from './layout/SideBar'
+import Loader from './components/molecules/Loader'
+import Notifications from './components/organisms/Notifications'
 
 import NavSwitcher from './components/molecules/NavSwitcher'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 function App() {
+  const notifs = useSelector((state) => state.notifs)
   return (
     <>
       <Header />
@@ -20,6 +24,8 @@ function App() {
           <NavSwitcher />
         </div>
       </div>
+      <Notifications {...notifs} />
+      {notifs.loading && <Loader loading={notifs.loading} />}
     </>
   )
 }

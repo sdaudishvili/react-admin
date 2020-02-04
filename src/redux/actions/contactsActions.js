@@ -1,4 +1,5 @@
-import { SET_CONTACTS, SET_CONTACTS_ERROR, SET_CONTACTS_LOADING } from './actionTypes'
+import { SET_CONTACTS } from './actionTypes'
+import { setError, setSuccess, setLoading } from './notificationActions'
 
 export const setContacts = (payload) => {
   return {
@@ -6,43 +7,40 @@ export const setContacts = (payload) => {
     payload
   }
 }
-export const setContactsError = (payload) => {
-  return {
-    type: SET_CONTACTS_ERROR,
-    payload
-  }
-}
-export const setContactsLoading = (payload) => {
-  return {
-    type: SET_CONTACTS_LOADING,
-    payload
-  }
-}
 
 export const fetchContacts = () => {
   return (dispatch) => {
-    dispatch(setContactsLoading())
+    dispatch(setLoading(true))
     axios.default
       .get('contacts')
       .then((response) => {
-        const data = response.data
-        dispatch(setContacts(data))
+        dispatch(setContacts(response.data))
+        dispatch(setLoading(false))
       })
       .catch((error) => {
-        dispatch(setContactsError(error))
+        console.error(error)
       })
   }
 }
 
 export const updateContacts = (data) => {
-  return () => {
+  return (dispatch) => {
+    dispatch(setLoading(true))
     axios.default
       .post('contacts', data)
       .then((response) => {
         console.log(response)
+        dispatch(setLoading(false))
+        dispatch(setSuccess(true))
       })
       .catch((error) => {
+        dispatch(setLoading(false))
+        dispatch(setError(true))
         console.error(error)
       })
+    setTimeout(() => {
+      dispatch(setError(false))
+      dispatch(setSuccess(false))
+    }, 2000)
   }
 }

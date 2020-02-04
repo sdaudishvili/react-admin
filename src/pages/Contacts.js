@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-import Loader from '../components/molecules/Loader'
 import PageHeader from '../components/atoms/PageHeader'
 import SectionHeader from '../components/atoms/SectionHeader'
 import Input from '../components/molecules/Input'
@@ -28,7 +27,6 @@ function Contacts(props) {
 
   function onSubmit() {
     dispatch(updateContacts(data))
-    props.history.push('/')
   }
 
   function onCancel() {
@@ -65,7 +63,6 @@ function Contacts(props) {
           <SectionHeader title="Information" />
         </div>
         <div className="section-wrapper__body">{elem}</div>
-        {contacts.loading && <Loader loading={contacts.loading} />}
       </section>
     </main>
   )

@@ -1,4 +1,5 @@
-import { SET_ABOUT, SET_ABOUT_ERROR, SET_ABOUT_LOADING } from './actionTypes'
+import { SET_ABOUT } from './actionTypes'
+import { setError, setSuccess, setLoading } from './notificationActions'
 
 export const setAbout = (payload) => {
   return {
@@ -6,43 +7,40 @@ export const setAbout = (payload) => {
     payload
   }
 }
-export const setAboutError = (payload) => {
-  return {
-    type: SET_ABOUT_ERROR,
-    payload
-  }
-}
-export const setAboutLoading = (payload) => {
-  return {
-    type: SET_ABOUT_LOADING,
-    payload
-  }
-}
 
 export const fetchAbout = () => {
   return (dispatch) => {
-    dispatch(setAboutLoading())
+    dispatch(setLoading(true))
     axios.default
       .get('about')
       .then((response) => {
-        const data = response.data
-        dispatch(setAbout(data))
+        dispatch(setAbout(response.data))
+        dispatch(setLoading(false))
       })
       .catch((error) => {
-        dispatch(setAboutError(error))
+        console.error(error)
       })
   }
 }
 
 export const updateAbout = (data) => {
-  return () => {
+  return (dispatch) => {
+    dispatch(setLoading(true))
     axios.default
       .post('about', data)
       .then((response) => {
         console.log(response)
+        dispatch(setLoading(false))
+        dispatch(setSuccess(true))
       })
       .catch((error) => {
+        dispatch(setLoading(false))
+        dispatch(setError(true))
         console.error(error)
       })
+    setTimeout(() => {
+      dispatch(setError(false))
+      dispatch(setSuccess(false))
+    }, 2000)
   }
 }
