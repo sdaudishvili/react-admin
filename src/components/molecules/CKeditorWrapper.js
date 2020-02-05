@@ -5,7 +5,7 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic'
 
 function CKeditorWrapper(props) {
   return (
-    <div className="row [ font--size--input ]">
+    <div className="row">
       <div className="col-lg-2 [ d-flex area--position--end-xs area--position--middle-xs ]">
         <label>{props.label}</label>
       </div>
