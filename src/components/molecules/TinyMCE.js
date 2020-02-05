@@ -22,10 +22,10 @@ function TinyMCE(props) {
 
   return (
     <div className="row [ font--size--input ]">
-      <div className="col-lg-2 [ d-flex area--position--end-xs ]">
+      <div className="col-md-3 [ d-flex area--position--end-xs ]">
         <label>{props.label}</label>
       </div>
-      <div className="col-lg-8">
+      <div className="col-md-9">
         <Editor
           apiKey={apiKey}
           initialValue={props.initialValue}

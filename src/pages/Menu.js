@@ -3,6 +3,7 @@ import PageHeader from '../components/atoms/PageHeader'
 import Input from '../components/molecules/Input'
 import SectionHeader from '../components/atoms/SectionHeader'
 import slugGenerator from '../plugins/SlugGenerator'
+import BodyItem from '../components/atoms/BodyItem'
 
 function Menu() {
   const [inp, setInp] = useState('')
@@ -20,12 +21,12 @@ function Menu() {
   }
   const elems = (
     <>
-      <div className="section-wrapper__body__item">
+      <BodyItem>
         <Input type="text" label="Title" value={inp} handleInput={getInpt} name="title" />
-      </div>
-      <div className="section-wrapper__body__item">
+      </BodyItem>
+      <BodyItem>
         <Input type="text" label="Title" value={slug} handleInput={getSlugInpt} name="title" />
-      </div>
+      </BodyItem>
     </>
   )
   return (

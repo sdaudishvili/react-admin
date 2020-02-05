@@ -5,6 +5,7 @@ import PageHeader from '../components/atoms/PageHeader'
 import SectionHeader from '../components/atoms/SectionHeader'
 import Input from '../components/molecules/Input'
 import TwoButtons from '../components/molecules/TwoButtons'
+import BodyItem from '../components/atoms/BodyItem'
 
 import { fetchContacts, updateContacts } from '../redux/actions/contactsActions'
 
@@ -35,13 +36,13 @@ function Contacts(props) {
 
   const elem = (
     <>
-      <div className="section-wrapper__body__item">
+      <BodyItem>
         <Input type="text" label="Mobile" value={data.phone || ''} handleInput={handleInput} name="phone" />
-      </div>
-      <div className="section-wrapper__body__item">
+      </BodyItem>
+      <BodyItem>
         <Input type="text" label="Email" value={data.email || ''} handleInput={handleInput} name="email" />
-      </div>
-      <div className="section-wrapper__body__item">
+      </BodyItem>
+      <BodyItem>
         <Input
           type="text"
           label="Address"
@@ -49,10 +50,10 @@ function Contacts(props) {
           handleInput={handleInput}
           name="address"
         />
-      </div>
-      <div className="section-wrapper__body__item">
+      </BodyItem>
+      <BodyItem>
         <TwoButtons onSubmit={onSubmit} onCancel={onCancel} />
-      </div>
+      </BodyItem>
     </>
   )
   return (

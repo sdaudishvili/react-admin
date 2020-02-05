@@ -6,6 +6,7 @@ import SectionHeader from '../components/atoms/SectionHeader'
 import Input from '../components/molecules/Input'
 import TwoButtons from '../components/molecules/TwoButtons'
 import TinyMCE from '../components/molecules/TinyMCE'
+import BodyItem from '../components/atoms/BodyItem'
 
 import { fetchAbout, updateAbout } from '../redux/actions/aboutActions'
 
@@ -41,20 +42,20 @@ function About(props) {
 
   const elem = (
     <>
-      <div className="section-wrapper__body__item">
+      <BodyItem>
         <Input type="text" label="Title" value={data.title || ''} handleInput={handleInput} name="title" />
-      </div>
-      <div className="section-wrapper__body__item">
+      </BodyItem>
+      <BodyItem>
         <TinyMCE
           initialValue={data.content || ''}
           label="Content"
           handleInput={handleTinyInput}
           name="content"
         />
-      </div>
-      <div className="section-wrapper__body__item">
+      </BodyItem>
+      <BodyItem>
         <TwoButtons onSubmit={onSubmit} onCancel={onCancel} />
-      </div>
+      </BodyItem>
     </>
   )
   return (

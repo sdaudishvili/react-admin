@@ -109,12 +109,11 @@
       font-size: 1.4em;
     }
     &--main {
-      font-size: 13px;
+      font-size: 13px !important;
     }
   }
 
   &--family {
-
     // noto-sans
     &--i {
       @include fonts('en-US', 'NotoSansDisplay-ExtraBold');

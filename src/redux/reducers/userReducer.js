@@ -1,12 +1,13 @@
 import Cookies from 'universal-cookie'
+import jwtDecode from 'jwt-decode'
 import { SET_USER } from '../actions/actionTypes'
 
 function getInitialState() {
   const cookies = new Cookies()
-  const user = cookies.get('user')
-  if (user !== undefined) {
+  const token = cookies.get('testUser')
+  if (token !== undefined) {
     return {
-      user
+      user: jwtDecode(token).email
     }
   }
   return {
@@ -19,6 +20,7 @@ const initialState = getInitialState()
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_USER: {
+      console.log(action)
       return {
         user: action.payload
       }

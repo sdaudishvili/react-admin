@@ -39,17 +39,17 @@ function About() {
 
   const elems = (
     <>
-      <div className="section-wrapper__body__item">
+      <div className="section-wrapper__body__item col-md-10">
         <ImageUploader label="Image" handleInput={handelImageInput} name="image" image={data.image} />
       </div>
 
-      <div className="section-wrapper__body__item">
+      <div className="section-wrapper__body__item col-md-10">
         <Input type="text" label="Title" value={data.title || ''} handleInput={handleInput} name="title" />
       </div>
-      <div className="section-wrapper__body__item">
+      <div className="section-wrapper__body__item col-md-10">
         <TinyMCE data={data.content || ''} label="Content" handleInput={handleTinyInput} name="content" />
       </div>
-      <div className="section-wrapper__body__item">
+      <div className="section-wrapper__body__item col-md-10">
         <TwoButtons onSubmit={onSubmit} onCancel={onCancel} />
       </div>
     </>

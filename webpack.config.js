@@ -13,7 +13,14 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: ['babel-loader', 'eslint-loader']
+        use: [
+          {
+            loader: 'babel-loader'
+          },
+          {
+            loader: 'eslint-loader'
+          }
+        ]
       },
       {
         test: /\.html$/,
@@ -56,7 +63,8 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
     port: 3000,
-    stats: 'errors-warnings'
+    stats: 'errors-warnings',
+    clientLogLevel: 'none'
   },
   plugins: [
     new HtmlWebPackPlugin({

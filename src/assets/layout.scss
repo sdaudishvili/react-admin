@@ -16,6 +16,7 @@
 
 .header {
   height: 70px;
+  padding: 0 50px;
   box-shadow: 0 1px 15px 1px rgba(69, 65, 78, 0.1);
   position: fixed;
   left: 0;
@@ -23,6 +24,18 @@
   top: 0;
   background-color: var(--header-color);
   z-index: 2;
+  color: white;
+  &__wrapper {
+    &__account {
+      margin-right: 30px;
+    }
+    &__logout {
+      &:hover {
+        border-bottom: 1px solid white;
+        cursor: pointer;
+      }
+    }
+  }
 }
 
 .footer {
@@ -61,7 +74,7 @@
     -moz-box-shadow: 0 1px 15px 1px rgba(69, 65, 78, 0.08);
     box-shadow: 0 1px 15px 1px rgba(69, 65, 78, 0.08);
     background-color: #fff;
-    width: 30%;
+    width: 500px;
     margin: 0 auto;
     font-size: 13px;
     &__header {
