@@ -5,6 +5,7 @@ import { signOut } from '../redux/actions/userActions'
 function Header() {
   const dispatch = useDispatch()
   const user = useSelector((state) => state.userState.user)
+
   function handleClick() {
     dispatch(signOut())
   }

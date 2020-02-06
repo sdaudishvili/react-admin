@@ -3,6 +3,7 @@ import About from './About'
 import Menu from './Menu'
 import Contacts from './Contacts'
 import Projects from './Projects'
+import NewProject from './NewProject'
 import Auth from './Auth'
 import DefaultLayout from '../layout/DefaultLayout'
 import AuthLayout from '../layout/AuthLayout'
@@ -45,10 +46,22 @@ const routes = [
     layout: AuthLayout
   },
   {
-    id: 6,
+    id: 7,
     path: '/auth/:slug',
     component: Auth,
     layout: AuthLayout
+  },
+  {
+    id: 8,
+    path: '/projects/UpdateProject/:slug',
+    component: NewProject,
+    layout: DefaultLayout
+  },
+  {
+    id: 9,
+    path: '/projects/NewProject',
+    component: NewProject,
+    layout: DefaultLayout
   }
 ]
 

@@ -1,6 +1,7 @@
 import Cookies from 'universal-cookie'
 import jwtDecode from 'jwt-decode'
-import { SET_USER } from './actionTypes'
+import { SET_USER, SET_AUTH_ERR } from './actionTypes'
+import { setToken } from '../../plugins/axios'
 
 const cookies = new Cookies()
 
@@ -11,9 +12,16 @@ export const setUser = (payload) => {
   }
 }
 
+export const setAuthError = (payload) => {
+  return {
+    type: SET_AUTH_ERR,
+    payload
+  }
+}
+
 export const signOut = () => {
   return (dispatch) => {
-    cookies.remove('testUser')
+    cookies.remove('testUser', { path: '/' })
     dispatch(setUser(''))
   }
 }
@@ -23,11 +31,13 @@ export const authenticateUser = (data) => {
     axios.default
       .post('auth/adminAuthenticate', data)
       .then((response) => {
-        cookies.set('testUser', response.data.token, { path: '/' })
-        dispatch(setUser(jwtDecode(response.data.token).email))
+        const { token } = response.data
+        cookies.set('testUser', token, { path: '/' })
+        setToken(token)
+        dispatch(setUser(jwtDecode(token).email))
       })
       .catch((error) => {
-        console.error(error)
+        dispatch(setAuthError(error.response.data.err))
       })
   }
 }

@@ -1,71 +1,25 @@
-import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import React from 'react'
+import { withRouter } from 'react-router-dom'
 import PageHeader from '../components/atoms/PageHeader'
 import SectionHeader from '../components/atoms/SectionHeader'
-import Input from '../components/molecules/Input'
-import TinyMCE from '../components/molecules/TinyMCE'
-import TwoButtons from '../components/molecules/TwoButtons'
-import ImageUploader from '../components/molecules/ImageUploader'
-import { uploadImage } from '../redux/actions/imageActions'
+import NewItemButton from '../components/atoms/NewItemButton'
 
-// http://localhost:3001/images/
-
-function About() {
-  const dispatch = useDispatch()
-  const [data, setData] = useState('')
-
-  function handleInput(event) {
-    setData({ ...data, [event.target.name]: event.target.value })
+function Projects(props) {
+  function onClick() {
+    props.history.push('/projects/NewProject')
   }
-
-  async function handelImageInput(event) {
-    const name = event.target.name
-    const file = await dispatch(uploadImage(event.target.files[0]))
-
-    setData({ ...data, [name]: file.data.filename })
-  }
-
-  function handleTinyInput(e) {
-    setData({ ...data, content: e.target.getContent() })
-  }
-
-  function onSubmit() {
-    console.log(data)
-  }
-
-  function onCancel() {
-    setData('')
-  }
-
-  const elems = (
-    <>
-      <div className="section-wrapper__body__item col-md-10">
-        <ImageUploader label="Image" handleInput={handelImageInput} name="image" image={data.image} />
-      </div>
-
-      <div className="section-wrapper__body__item col-md-10">
-        <Input type="text" label="Title" value={data.title || ''} handleInput={handleInput} name="title" />
-      </div>
-      <div className="section-wrapper__body__item col-md-10">
-        <TinyMCE data={data.content || ''} label="Content" handleInput={handleTinyInput} name="content" />
-      </div>
-      <div className="section-wrapper__body__item col-md-10">
-        <TwoButtons onSubmit={onSubmit} onCancel={onCancel} />
-      </div>
-    </>
-  )
-
   return (
     <main id="main" role="main" className="projects-wrapper">
       <PageHeader title="Projects" />
       <section className="section-wrapper">
-        <div className="section-wrapper__header">
+        <div className="section-wrapper__header [ display--flex area--position--between-xs ]">
           <SectionHeader title="Information" />
+          <NewItemButton onClick={onClick} />
         </div>
-        <div className="section-wrapper__body">{elems}</div>
+        <div className="section-wrapper__body">Projects</div>
       </section>
     </main>
   )
 }
 
-export default About
+export default withRouter(Projects)

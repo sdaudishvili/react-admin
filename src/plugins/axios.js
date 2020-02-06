@@ -1,6 +1,16 @@
 import axios from 'axios'
 
-export default axios.create({
+const restApi = axios.create({
   // baseURL: `https://api.mediacritic.ge/api/`
   baseURL: `http://localhost:3001/api/`
 })
+
+export function setToken(token) {
+  restApi.defaults.headers.common.Authorization = token
+}
+
+restApi.interceptors.request.use((config) => {
+  return config
+})
+
+export default restApi
