@@ -34,8 +34,10 @@ body {
   background-color: var(--body-background-color);
 }
 
-html, body, #root {
-  height: 100%
+html,
+body,
+#root {
+  height: 100%;
 }
 #main {
   padding: 30px;
@@ -47,7 +49,7 @@ a {
 
 .page-enter-active,
 .page-leave-active {
-  transition: opacity .1s;
+  transition: opacity 0.1s;
 }
 
 .page-enter,
