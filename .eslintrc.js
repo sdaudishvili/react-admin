@@ -17,7 +17,7 @@ module.exports = {
   },
   plugins: ['jsx-a11y', 'react-hooks'],
   rules: {
-    'no-console': [1, { allow: ['warn', 'error'] }],
+    'no-console': [0, { allow: ['warn', 'error'] }],
     'react/destructuring-assignment': 0,
     'react/jsx-filename-extension': [
       1,
