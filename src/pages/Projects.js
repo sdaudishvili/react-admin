@@ -2,8 +2,8 @@ import React from 'react'
 import { withRouter } from 'react-router-dom'
 import PageHeader from '../components/atoms/PageHeader'
 import SectionHeader from '../components/atoms/SectionHeader'
-import NewItemButton from '../components/atoms/NewItemButton'
 import Body from '../components/Body/Body'
+// import '@material/mwc-fab'
 
 function Projects(props) {
   function onClick() {
@@ -18,7 +18,7 @@ function Projects(props) {
       <section className="section-wrapper">
         <div className="[ display--flex area--position--between-xs ]">
           <SectionHeader title="Information" />
-          <NewItemButton onClick={onClick} />
+          <mwc-fab mini icon="+" onClick={onClick}></mwc-fab>
         </div>
         <Body>{elems}</Body>
       </section>

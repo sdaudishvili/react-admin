@@ -6,8 +6,9 @@ import Input from '../components/molecules/Input'
 import TinyMCE from '../components/molecules/TinyMCE'
 import TwoButtons from '../components/molecules/TwoButtons'
 import ImageUploader from '../components/molecules/ImageUploader'
-import { uploadImage } from '../redux/actions/imageActions'
 import Body from '../components/Body/Body'
+
+import { uploadImage } from '../redux/actions/imageActions'
 
 function NewProject() {
   const dispatch = useDispatch()
@@ -39,7 +40,7 @@ function NewProject() {
   const elems = [
     <ImageUploader label="Image" handleInput={handelImageInput} name="image" image={data.image} />,
     <Input type="text" label="Title" value={data.title || ''} handleInput={handleInput} name="title" />,
-    <TinyMCE data={data.content || ''} label="Content" handleInput={handleTinyInput} name="content" />,
+    <TinyMCE label="Content" content={data.content || ''} handleInput={handleTinyInput} name="content" />,
     <TwoButtons onSubmit={onSubmit} onCancel={onCancel} />
   ]
 

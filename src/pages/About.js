@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import PageHeader from '../components/atoms/PageHeader'
-import SectionHeader from '../components/atoms/SectionHeader'
 import Input from '../components/molecules/Input'
 import TwoButtons from '../components/molecules/TwoButtons'
 import TinyMCE from '../components/molecules/TinyMCE'
 import Body from '../components/Body/Body'
+import SectionHeader from '../components/atoms/SectionHeader'
 
 import { fetchAbout, updateAbout } from '../redux/actions/aboutActions'
 

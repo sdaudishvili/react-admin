@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import PageHeader from '../components/atoms/PageHeader'
 import Input from '../components/molecules/Input'
-import SectionHeader from '../components/atoms/SectionHeader'
 import slugGenerator from '../plugins/SlugGenerator'
+import SectionHeader from '../components/atoms/SectionHeader'
 import Body from '../components/Body/Body'
 
 function Menu() {

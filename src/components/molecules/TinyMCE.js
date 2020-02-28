@@ -26,12 +26,7 @@ function TinyMCE(props) {
         <label>{props.label}</label>
       </div>
       <div className="col-md-9">
-        <Editor
-          apiKey={apiKey}
-          initialValue={props.initialValue}
-          init={TinyInit}
-          onChange={props.handleInput}
-        />
+        <Editor apiKey={apiKey} initialValue={props.content} init={TinyInit} onChange={props.handleInput} />
       </div>
     </div>
   )

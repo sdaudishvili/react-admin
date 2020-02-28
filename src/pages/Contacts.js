@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import PageHeader from '../components/atoms/PageHeader'
-import SectionHeader from '../components/atoms/SectionHeader'
 import Input from '../components/molecules/Input'
 import TwoButtons from '../components/molecules/TwoButtons'
+import SectionHeader from '../components/atoms/SectionHeader'
 import Body from '../components/Body/Body'
 
 import { fetchContacts, updateContacts } from '../redux/actions/contactsActions'
@@ -13,6 +13,7 @@ function Contacts(props) {
   const contacts = useSelector((state) => state.contacts)
   const dispatch = useDispatch()
   const [data, setData] = useState('')
+
   useEffect(() => {
     dispatch(fetchContacts())
   }, [dispatch])
