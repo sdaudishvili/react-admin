@@ -55,9 +55,7 @@ function About(props) {
     <main id="main" role="main" className="about-wrapper">
       <PageHeader title="About" />
       <section className="section-wrapper">
-        <div className="section-wrapper__header">
-          <SectionHeader title="Information" />
-        </div>
+        <SectionHeader title="Information" />
         <Body>{elems}</Body>
       </section>
     </main>

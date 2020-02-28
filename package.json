@@ -73,7 +73,8 @@
     "extends": "react-app"
   },
   "scripts": {
-    "start": "webpack-dev-server --open --mode development",
+    "start": "webpack-dev-server --open --mode development & npm tailwind",
+    "tailwind": "postcss tailwindcss/tailwind.src.css -o src/assets/tailwind.css -w",
     "build": "webpack --mode production"
   },
   "author": "",
