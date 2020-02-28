@@ -1,5 +1,6 @@
 import React from 'react'
 import Header from './Header'
+// eslint-disable-next-line import/no-cycle
 import SideBar from './SideBar'
 
 import 'bootstrap/dist/css/bootstrap.min.css'

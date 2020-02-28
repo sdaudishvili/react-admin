@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-import PageHeader from '../components/atoms/PageHeader'
 import Input from '../components/molecules/Input'
 import TwoButtons from '../components/molecules/TwoButtons'
 import TinyMCE from '../components/molecules/TinyMCE'
-import Body from '../components/Body/Body'
+import Page from '../components/Page/Page'
 import SectionHeader from '../components/atoms/SectionHeader'
 
 import { fetchAbout, updateAbout } from '../redux/actions/aboutActions'
@@ -51,15 +50,9 @@ function About(props) {
     <TwoButtons onSubmit={onSubmit} onCancel={onCancel} />
   ]
 
-  return (
-    <main id="main" role="main" className="about-wrapper">
-      <PageHeader title="About" />
-      <section className="section-wrapper">
-        <SectionHeader title="Information" />
-        <Body>{elems}</Body>
-      </section>
-    </main>
-  )
+  const head = <SectionHeader title="Information" />
+
+  return <Page pageTitle="About" head={head} body={elems} />
 }
 
 export default withRouter(About)

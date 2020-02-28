@@ -6,17 +6,18 @@ import { setToken } from '../../plugins/axios'
 function getInitialState() {
   const cookies = new Cookies()
   const token = cookies.get('testUser')
+  let res = { user: '', error: '' }
   if (token !== undefined) {
-    setToken(token)
-    return {
-      user: jwtDecode(token).email,
-      error: ''
+    const parsedToken = jwtDecode(token)
+    const now = new Date().getTime() / 1000
+    if (parsedToken.exp - now < 0) {
+      cookies.remove('testUser', { path: '/' })
+    } else {
+      setToken(token)
+      res = { ...res, user: jwtDecode(token).email }
     }
   }
-  return {
-    user: '',
-    error: ''
-  }
+  return res
 }
 
 const initialState = getInitialState()

@@ -1,8 +1,7 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
-import PageHeader from '../components/atoms/PageHeader'
 import SectionHeader from '../components/atoms/SectionHeader'
-import Body from '../components/Body/Body'
+import Page from '../components/Page/Page'
 import '@material/mwc-fab'
 
 function Projects(props) {
@@ -11,19 +10,14 @@ function Projects(props) {
   }
 
   const elems = ['Projects']
-
-  return (
-    <main id="main" role="main" className="projects-wrapper">
-      <PageHeader title="Projects" />
-      <section className="section-wrapper">
-        <div className="[ display--flex area--position--between-xs ]">
-          <SectionHeader title="Information" />
-          <mwc-fab mini icon="+" onClick={onClick}></mwc-fab>
-        </div>
-        <Body>{elems}</Body>
-      </section>
-    </main>
+  const head = (
+    <div className="[ display--flex area--position--between-xs ]">
+      <SectionHeader title="Information" />
+      <mwc-fab mini icon="+" onClick={onClick}></mwc-fab>
+    </div>
   )
+
+  return <Page pageTitle="Projects" head={head} body={elems} />
 }
 
 export default withRouter(Projects)

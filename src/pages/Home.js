@@ -3,7 +3,7 @@ import PageHeader from '../components/atoms/PageHeader'
 
 function Home() {
   return (
-    <main id="main" role="main" className="home-wrapper">
+    <main id="main" role="main">
       <PageHeader title="Home" />
       <input type="file" />
     </main>

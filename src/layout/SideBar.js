@@ -1,8 +1,10 @@
 import React from 'react'
-import Navigation from '../components/organisms/Navigation'
+// eslint-disable-next-line import/no-cycle
+import routes from '../pages/routes'
+import Navigation from '../components/Navigation/Navigation'
 
 function SideBar() {
-  return <Navigation />
+  return <Navigation routes={routes} />
 }
 
 export default SideBar

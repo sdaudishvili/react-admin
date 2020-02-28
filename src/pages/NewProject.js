@@ -1,12 +1,11 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import PageHeader from '../components/atoms/PageHeader'
 import SectionHeader from '../components/atoms/SectionHeader'
 import Input from '../components/molecules/Input'
 import TinyMCE from '../components/molecules/TinyMCE'
 import TwoButtons from '../components/molecules/TwoButtons'
 import ImageUploader from '../components/molecules/ImageUploader'
-import Body from '../components/Body/Body'
+import Page from '../components/Page/Page'
 
 import { uploadImage } from '../redux/actions/imageActions'
 
@@ -43,16 +42,9 @@ function NewProject() {
     <TinyMCE label="Content" content={data.content || ''} handleInput={handleTinyInput} name="content" />,
     <TwoButtons onSubmit={onSubmit} onCancel={onCancel} />
   ]
+  const head = <SectionHeader title="Information" />
 
-  return (
-    <main id="main" role="main" className="projects-wrapper">
-      <PageHeader title="Projects" />
-      <section className="section-wrapper">
-        <SectionHeader title="Information" />
-        <Body>{elems}</Body>
-      </section>
-    </main>
-  )
+  return <Page pageTitle="Projects" head={head} body={elems} />
 }
 
 export default NewProject

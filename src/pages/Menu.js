@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
-import PageHeader from '../components/atoms/PageHeader'
 import Input from '../components/molecules/Input'
 import slugGenerator from '../plugins/SlugGenerator'
 import SectionHeader from '../components/atoms/SectionHeader'
-import Body from '../components/Body/Body'
+import Page from '../components/Page/Page'
 
 function Menu() {
   const [inp, setInp] = useState('')
@@ -24,15 +23,9 @@ function Menu() {
     <Input type="text" label="Slug" value={slug} handleInput={getSlugInpt} name="title" />
   ]
 
-  return (
-    <main id="main" role="main" className="home-wrapper">
-      <PageHeader title="Menu" />
-      <section className="section-wrapper">
-        <SectionHeader title="Menu" />
-        <Body>{elems}</Body>
-      </section>
-    </main>
-  )
+  const head = <SectionHeader title="Menu" />
+
+  return <Page pageTitle="Menu" head={head} body={elems} />
 }
 
 export default Menu

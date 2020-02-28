@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-import PageHeader from '../components/atoms/PageHeader'
 import Input from '../components/molecules/Input'
 import TwoButtons from '../components/molecules/TwoButtons'
 import SectionHeader from '../components/atoms/SectionHeader'
-import Body from '../components/Body/Body'
+import Page from '../components/Page/Page'
 
 import { fetchContacts, updateContacts } from '../redux/actions/contactsActions'
 
@@ -41,16 +40,9 @@ function Contacts(props) {
     <Input type="text" label="Address" value={data.address || ''} handleInput={handleInput} name="address" />,
     <TwoButtons onSubmit={onSubmit} onCancel={onCancel} />
   ]
+  const head = <SectionHeader title="Information" />
 
-  return (
-    <main id="main" role="main" className="contacts-wrapper">
-      <PageHeader title="Contacts" />
-      <section className="section-wrapper">
-        <SectionHeader title="Information" />
-        <Body>{elems}</Body>
-      </section>
-    </main>
-  )
+  return <Page pageTitle="Contacts" head={head} body={elems} />
 }
 
 export default withRouter(Contacts)
