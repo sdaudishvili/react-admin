@@ -7,7 +7,7 @@ import TinyMCE from '../components/molecules/TinyMCE'
 import TwoButtons from '../components/molecules/TwoButtons'
 import ImageUploader from '../components/molecules/ImageUploader'
 import { uploadImage } from '../redux/actions/imageActions'
-import BodyItem from '../components/atoms/BodyItem'
+import Body from '../components/Body/Body'
 
 function NewProject() {
   const dispatch = useDispatch()
@@ -36,37 +36,19 @@ function NewProject() {
     setData('')
   }
 
-  const arr = [
+  const elems = [
     <ImageUploader label="Image" handleInput={handelImageInput} name="image" image={data.image} />,
     <Input type="text" label="Title" value={data.title || ''} handleInput={handleInput} name="title" />,
     <TinyMCE data={data.content || ''} label="Content" handleInput={handleTinyInput} name="content" />,
     <TwoButtons onSubmit={onSubmit} onCancel={onCancel} />
   ]
-  const elems = (
-    <>
-      <BodyItem>
-        <ImageUploader label="Image" handleInput={handelImageInput} name="image" image={data.image} />
-      </BodyItem>
-      <BodyItem>
-        <Input type="text" label="Title" value={data.title || ''} handleInput={handleInput} name="title" />
-      </BodyItem>
-      <BodyItem>
-        <TinyMCE data={data.content || ''} label="Content" handleInput={handleTinyInput} name="content" />
-      </BodyItem>
-      <BodyItem>
-        <TwoButtons onSubmit={onSubmit} onCancel={onCancel} />
-      </BodyItem>
-    </>
-  )
 
   return (
     <main id="main" role="main" className="projects-wrapper">
       <PageHeader title="Projects" />
       <section className="section-wrapper">
-        <div className="section-wrapper__header">
-          <SectionHeader title="Information" />
-        </div>
-        <div className="section-wrapper__body">{elems}</div>
+        <SectionHeader title="Information" />
+        <Body>{elems}</Body>
       </section>
     </main>
   )

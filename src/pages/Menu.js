@@ -3,7 +3,7 @@ import PageHeader from '../components/atoms/PageHeader'
 import Input from '../components/molecules/Input'
 import SectionHeader from '../components/atoms/SectionHeader'
 import slugGenerator from '../plugins/SlugGenerator'
-import BodyItem from '../components/atoms/BodyItem'
+import Body from '../components/Body/Body'
 
 function Menu() {
   const [inp, setInp] = useState('')
@@ -19,24 +19,17 @@ function Menu() {
     const { value } = e.target
     setSlug(`${value}`)
   }
-  const elems = (
-    <>
-      <BodyItem>
-        <Input type="text" label="Title" value={inp} handleInput={getInpt} name="title" />
-      </BodyItem>
-      <BodyItem>
-        <Input type="text" label="Title" value={slug} handleInput={getSlugInpt} name="title" />
-      </BodyItem>
-    </>
-  )
+  const elems = [
+    <Input type="text" label="Title" value={inp} handleInput={getInpt} name="title" />,
+    <Input type="text" label="Title" value={slug} handleInput={getSlugInpt} name="title" />
+  ]
+
   return (
     <main id="main" role="main" className="home-wrapper">
       <PageHeader title="Menu" />
       <section className="section-wrapper">
-        <div className="section-wrapper__header">
-          <SectionHeader title="Menu" />
-        </div>
-        <div className="section-wrapper__body">{elems}</div>
+        <SectionHeader title="Menu" />
+        <Body>{elems}</Body>
       </section>
     </main>
   )

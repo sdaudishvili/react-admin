@@ -5,7 +5,7 @@ import PageHeader from '../components/atoms/PageHeader'
 import SectionHeader from '../components/atoms/SectionHeader'
 import Input from '../components/molecules/Input'
 import TwoButtons from '../components/molecules/TwoButtons'
-import BodyItem from '../components/atoms/BodyItem'
+import Body from '../components/Body/Body'
 
 import { fetchContacts, updateContacts } from '../redux/actions/contactsActions'
 
@@ -34,36 +34,19 @@ function Contacts(props) {
     props.history.push('/')
   }
 
-  const elem = (
-    <>
-      <BodyItem>
-        <Input type="text" label="Mobile" value={data.phone || ''} handleInput={handleInput} name="phone" />
-      </BodyItem>
-      <BodyItem>
-        <Input type="text" label="Email" value={data.email || ''} handleInput={handleInput} name="email" />
-      </BodyItem>
-      <BodyItem>
-        <Input
-          type="text"
-          label="Address"
-          value={data.address || ''}
-          handleInput={handleInput}
-          name="address"
-        />
-      </BodyItem>
-      <BodyItem>
-        <TwoButtons onSubmit={onSubmit} onCancel={onCancel} />
-      </BodyItem>
-    </>
-  )
+  const elems = [
+    <Input type="text" label="Mobile" value={data.phone || ''} handleInput={handleInput} name="phone" />,
+    <Input type="text" label="Email" value={data.email || ''} handleInput={handleInput} name="email" />,
+    <Input type="text" label="Address" value={data.address || ''} handleInput={handleInput} name="address" />,
+    <TwoButtons onSubmit={onSubmit} onCancel={onCancel} />
+  ]
+
   return (
     <main id="main" role="main" className="contacts-wrapper">
       <PageHeader title="Contacts" />
       <section className="section-wrapper">
-        <div className="section-wrapper__header">
-          <SectionHeader title="Information" />
-        </div>
-        <div className="section-wrapper__body">{elem}</div>
+        <SectionHeader title="Information" />
+        <Body>{elems}</Body>
       </section>
     </main>
   )

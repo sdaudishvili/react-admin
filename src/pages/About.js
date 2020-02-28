@@ -6,7 +6,7 @@ import SectionHeader from '../components/atoms/SectionHeader'
 import Input from '../components/molecules/Input'
 import TwoButtons from '../components/molecules/TwoButtons'
 import TinyMCE from '../components/molecules/TinyMCE'
-import BodyItem from '../components/atoms/BodyItem'
+import Body from '../components/Body/Body'
 
 import { fetchAbout, updateAbout } from '../redux/actions/aboutActions'
 
@@ -40,24 +40,17 @@ function About(props) {
     props.history.push('/')
   }
 
-  const elem = (
-    <>
-      <BodyItem>
-        <Input type="text" label="Title" value={data.title || ''} handleInput={handleInput} name="title" />
-      </BodyItem>
-      <BodyItem>
-        <TinyMCE
-          initialValue={data.content || ''}
-          label="Content"
-          handleInput={handleTinyInput}
-          name="content"
-        />
-      </BodyItem>
-      <BodyItem>
-        <TwoButtons onSubmit={onSubmit} onCancel={onCancel} />
-      </BodyItem>
-    </>
-  )
+  const elems = [
+    <Input type="text" label="Title" value={data.title || ''} handleInput={handleInput} name="title" />,
+    <TinyMCE
+      initialValue={data.content || ''}
+      label="Content"
+      handleInput={handleTinyInput}
+      name="content"
+    />,
+    <TwoButtons onSubmit={onSubmit} onCancel={onCancel} />
+  ]
+
   return (
     <main id="main" role="main" className="about-wrapper">
       <PageHeader title="About" />
@@ -65,7 +58,7 @@ function About(props) {
         <div className="section-wrapper__header">
           <SectionHeader title="Information" />
         </div>
-        <div className="section-wrapper__body">{elem}</div>
+        <Body>{elems}</Body>
       </section>
     </main>
   )
