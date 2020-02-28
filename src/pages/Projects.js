@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom'
 import PageHeader from '../components/atoms/PageHeader'
 import SectionHeader from '../components/atoms/SectionHeader'
 import Body from '../components/Body/Body'
-// import '@material/mwc-fab'
+import '@material/mwc-fab'
 
 function Projects(props) {
   function onClick() {

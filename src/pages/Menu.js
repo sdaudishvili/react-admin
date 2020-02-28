@@ -21,7 +21,7 @@ function Menu() {
   }
   const elems = [
     <Input type="text" label="Title" value={inp} handleInput={getInpt} name="title" />,
-    <Input type="text" label="Title" value={slug} handleInput={getSlugInpt} name="title" />
+    <Input type="text" label="Slug" value={slug} handleInput={getSlugInpt} name="title" />
   ]
 
   return (
