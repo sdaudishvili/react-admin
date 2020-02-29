@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { useParams, Redirect, withRouter } from 'react-router-dom'
-import Login from '../components/Login/Login'
+import SignIn from '../components/Login/SignIn'
 
 function Auth(props) {
   const { slug } = useParams()
@@ -14,7 +14,7 @@ function Auth(props) {
   }
   return (
     <div id="login" role="main">
-      {slug === 'login' && <Login />}
+      {slug === 'login' && <SignIn />}
     </div>
   )
 }

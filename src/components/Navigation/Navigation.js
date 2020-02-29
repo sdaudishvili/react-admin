@@ -6,9 +6,7 @@ function Navigation(props) {
   return (
     <nav className="[ text-1-6 ]">
       <ul>
-        {props.routes.map((e) => (
-          <NavItem path={e.path} title={e.title} key={e.id} />
-        ))}
+        {props.routes.map((e) => e.title !== '' && <NavItem path={e.path} title={e.title} key={e.id} />)}
       </ul>
     </nav>
   )

@@ -8,6 +8,7 @@ const colors = {
   border: '#ebedf2',
   'border-focused': '#716aca',
   'body-bg': '#201F2B',
+  'sign-in-avatar': '#DC004E',
   dark: '#353535',
   white: '#fff',
   gray: '#ececec',

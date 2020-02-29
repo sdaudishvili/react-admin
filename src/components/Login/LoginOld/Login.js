@@ -1,10 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux'
 import React, { useState } from 'react'
-import Input from '../molecules/Input'
+import Input from '../../molecules/Input'
 import LoginForm from './LoginForm'
-import { authenticateUser } from '../../redux/actions/userActions'
-import '../../assets/App.scss'
-import '../../assets/sass/style.scss'
+import { authenticateUser } from '../../../redux/actions/userActions'
 
 function Login() {
   const dispatch = useDispatch()
