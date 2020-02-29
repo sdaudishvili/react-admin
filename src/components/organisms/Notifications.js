@@ -12,7 +12,7 @@ function Notifications(props) {
     }
   }, [props.error, props.success])
   return (
-    <div className="font--size--h-i-vii">
+    <div className="[ text-1-7 ]">
       <NotificationContainer />
     </div>
   )

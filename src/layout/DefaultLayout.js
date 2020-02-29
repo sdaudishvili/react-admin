@@ -1,19 +1,16 @@
 import React from 'react'
-import Header from './Header'
+import DefaultLayoutHeader from './DefaultLayoutHeader'
+import DefaultLayoutBody from './DefaultLayoutBody'
 // eslint-disable-next-line import/no-cycle
-import SideBar from './SideBar'
-
-import 'bootstrap/dist/css/bootstrap.min.css'
+import DefaultLayoutSideBar from './DefaultLayoutSideBar'
 
 function DefaultLayout(props) {
   return (
     <>
-      <Header />
-      <div className="d-flex main-container-wrapper">
-        <div className="side-bar">
-          <SideBar />
-        </div>
-        <div className="page-content media-body">{props.children}</div>
+      <DefaultLayoutHeader />
+      <div className="[ flex min-h-full pt-7-0 ]">
+        <DefaultLayoutSideBar />
+        <DefaultLayoutBody>{props.children}</DefaultLayoutBody>
       </div>
     </>
   )

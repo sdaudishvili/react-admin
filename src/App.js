@@ -5,8 +5,6 @@ import Loader from './components/molecules/Loader'
 import Notifications from './components/organisms/Notifications'
 import NavSwitcher from './components/molecules/NavSwitcher'
 
-import 'bootstrap/dist/css/bootstrap.min.css'
-
 function App(props) {
   const notifs = useSelector((state) => state.notifs)
   const user = useSelector((state) => state.userState.user)

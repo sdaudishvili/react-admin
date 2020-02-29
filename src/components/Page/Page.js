@@ -7,7 +7,7 @@ function Page(props) {
   return (
     <main id="main" role="main">
       <PageHeader title="Projects" />
-      <section className="section-wrapper">
+      <section className="box-shadow [ bg-white text-1-5 ]">
         <SectionHead>{props.head}</SectionHead>
         <SectionBody>{props.body}</SectionBody>
       </section>

@@ -21,11 +21,9 @@ function TinyMCE(props) {
   }
 
   return (
-    <div className="row [ font--size--input ]">
-      <div className="col-md-3 [ d-flex area--position--end-xs ]">
-        <label>{props.label}</label>
-      </div>
-      <div className="col-md-9">
+    <div className="[ grid grid-cols-12 ]">
+      <label className="[ col-span-3 text-right mr-3-0 ]">{props.label}</label>
+      <div className="[ col-span-9 ]">
         <Editor apiKey={apiKey} initialValue={props.content} init={TinyInit} onChange={props.handleInput} />
       </div>
     </div>
