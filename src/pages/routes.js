@@ -5,7 +5,6 @@ import Contacts from './Contacts'
 import Projects from './Projects'
 import NewProject from './NewProject'
 import Auth from './Auth'
-import SignIn from '../components/Login/SignIn'
 import AuthLayout from '../layout/AuthLayout'
 // eslint-disable-next-line import/no-cycle
 import DefaultLayout from '../layout/DefaultLayout'
@@ -47,20 +46,6 @@ const routes = [
     layout: DefaultLayout
   },
   {
-    id: 6,
-    path: '/auth',
-    title: '',
-    component: Auth,
-    layout: AuthLayout
-  },
-  {
-    id: 7,
-    path: '/auth/:slug',
-    title: '',
-    component: Auth,
-    layout: AuthLayout
-  },
-  {
     id: 8,
     path: '/projects/UpdateProject/:slug',
     title: '',
@@ -78,7 +63,7 @@ const routes = [
     id: 10,
     path: '/signinnew',
     title: '',
-    component: SignIn,
+    component: Auth,
     layout: AuthLayout
   }
 ]

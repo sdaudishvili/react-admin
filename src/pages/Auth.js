@@ -5,6 +5,7 @@ import SignIn from '../components/Login/SignIn'
 
 function Auth(props) {
   const { slug } = useParams()
+  console.log(slug)
   const user = useSelector((state) => state.userState.user)
   if (props.location.pathname !== '/auth/login') {
     return <Redirect to="/auth/login" />
