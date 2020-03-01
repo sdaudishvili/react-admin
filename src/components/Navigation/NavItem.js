@@ -1,14 +1,15 @@
 import React from 'react'
-
+import ListItem from '@material-ui/core/ListItem'
+import ListItemText from '@material-ui/core/ListItemText'
 import { NavLink } from 'react-router-dom'
 
 function NavItem(props) {
   return (
-    <li className="[ hover:bg-nav-hover-bg hover:opacity-80 ]">
-      <NavLink className="[ block w-full text-nav-text py-0-5 px-1-0 ]" to={props.path}>
-        {props.title}
+    <ListItem button>
+      <NavLink className="[ block w-full text-nav-text ]" to={props.path}>
+        <ListItemText primary={props.title} />
       </NavLink>
-    </li>
+    </ListItem>
   )
 }
 export default NavItem

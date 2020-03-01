@@ -1,14 +1,14 @@
 import React from 'react'
-import DefaultLayoutHeader from './DefaultLayoutHeader'
 import DefaultLayoutBody from './DefaultLayoutBody'
 // eslint-disable-next-line import/no-cycle
 import DefaultLayoutSideBar from './DefaultLayoutSideBar'
+import MaterialUiHeader from './MaterialUiHeader'
 
 function DefaultLayout(props) {
   return (
     <>
-      <DefaultLayoutHeader />
-      <div className="[ flex min-h-full pt-7-0 ]">
+      <MaterialUiHeader />
+      <div className="[ flex min-h-full ]">
         <DefaultLayoutSideBar />
         <DefaultLayoutBody>{props.children}</DefaultLayoutBody>
       </div>
