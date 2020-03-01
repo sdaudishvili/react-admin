@@ -74,6 +74,9 @@ module.exports = {
     new webpack.ProvidePlugin({
       // eslint-disable-next-line no-undef
       axios: path.resolve(__dirname, 'src/plugins/axios')
+    }),
+    new webpack.DefinePlugin({
+      STATICURL: JSON.stringify('http://localhost:3001/images/')
     })
   ]
 }

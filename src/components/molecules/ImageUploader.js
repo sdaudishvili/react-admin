@@ -10,11 +10,7 @@ function ImageUploader(props) {
         </div>
       </div>
       {props.image && (
-        <img
-          className="[ mt-2-0 w-30-percent ml-30-percent ]"
-          src={`http://localhost:3001/images/${props.image}`}
-          alt=""
-        />
+        <img className="[ mt-2-0 w-30-percent ml-30-percent ]" src={STATICURL + props.image} alt="" />
       )}
     </>
   )

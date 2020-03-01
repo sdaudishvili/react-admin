@@ -13,7 +13,8 @@ module.exports = {
   ],
   globals: {
     test: true,
-    axios: true
+    axios: true,
+    STATICURL: true
   },
   plugins: ['jsx-a11y', 'react-hooks'],
   rules: {

@@ -21,3 +21,9 @@ export const uploadImage = (data) => {
     return axios.default.post('upload', formData)
   }
 }
+
+export const cropImage = (data) => {
+  return () => {
+    return axios.default.post('upload/CropImage', data)
+  }
+}
