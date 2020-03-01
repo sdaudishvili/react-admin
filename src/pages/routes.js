@@ -4,67 +4,49 @@ import Menu from './Menu'
 import Contacts from './Contacts'
 import Projects from './Projects'
 import NewProject from './NewProject'
-import Auth from './Auth'
-import AuthLayout from '../layout/AuthLayout'
-// eslint-disable-next-line import/no-cycle
-import DefaultLayout from '../layout/DefaultLayout'
 
 const routes = [
   {
     id: 1,
     path: '/',
     title: 'Home',
-    component: Home,
-    layout: DefaultLayout
+    component: Home
   },
   {
     id: 2,
     path: '/about',
     title: 'About',
-    component: About,
-    layout: DefaultLayout
+    component: About
   },
   {
     id: 3,
     path: '/menu',
     title: 'Menu',
-    component: Menu,
-    layout: DefaultLayout
+    component: Menu
   },
   {
     id: 4,
     path: '/contacts',
     title: 'Contacts',
-    component: Contacts,
-    layout: DefaultLayout
+    component: Contacts
   },
   {
     id: 5,
     path: '/projects',
     title: 'Projects',
-    component: Projects,
-    layout: DefaultLayout
+    component: Projects
   },
   {
     id: 8,
     path: '/projects/UpdateProject/:slug',
     title: '',
-    component: NewProject,
-    layout: DefaultLayout
+    component: NewProject
   },
   {
     id: 9,
     path: '/projects/NewProject',
     title: '',
-    component: NewProject,
-    layout: DefaultLayout
-  },
-  {
-    id: 10,
-    path: '/signinnew',
-    title: '',
-    component: Auth,
-    layout: AuthLayout
+    component: NewProject
   }
 ]
 

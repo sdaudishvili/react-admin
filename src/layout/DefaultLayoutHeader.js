@@ -1,27 +1,32 @@
 import React from 'react'
+import Toolbar from '@material-ui/core/Toolbar'
+import IconButton from '@material-ui/core/IconButton'
+import MenuIcon from '@material-ui/icons/Menu'
+import ExitToAppIcon from '@material-ui/icons/ExitToApp'
 import { useSelector, useDispatch } from 'react-redux'
 import { signOut } from '../redux/actions/userActions'
 
-function DefaultLayoutHeader() {
+export default function MaterialUiHeader() {
   const dispatch = useDispatch()
   const user = useSelector((state) => state.userState.user)
 
-  function handleClick() {
+  function handleSignOutButton() {
     dispatch(signOut())
   }
-
   return (
-    <header>
-      <div className="[ h-7-0 px-5-0 fixed left-0 top-0 right-0 text-white z-2 bg-header text-2-0 ]">
-        <div className="[ h-full flex justify-end items-center ]">
-          <div className="[ mr-3-0 cursor-pointer ]">{user}</div>
-          <div className="[ hover:opacity-60 ]" tabIndex="0" role="button" onClick={handleClick}>
-            Log out
-          </div>
-        </div>
-      </div>
-    </header>
+    <div className="[ fixed top-0 left-0 right-0 text-white bg-header h-7-0 z-2 ]">
+      <Toolbar>
+        <IconButton edge="start" color="inherit" aria-label="open drawer">
+          <MenuIcon />
+        </IconButton>
+        <div className="[ flex-grow ]" />
+        <IconButton edge="end" aria-label="email of current user" color="inherit">
+          {user}
+        </IconButton>
+        <IconButton onClick={handleSignOutButton} edge="end" aria-label="logout" color="inherit">
+          <ExitToAppIcon />
+        </IconButton>
+      </Toolbar>
+    </div>
   )
 }
-
-export default DefaultLayoutHeader
