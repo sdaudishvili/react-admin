@@ -17,6 +17,7 @@ function Cropper(props) {
     const file = await dispatch(cropImage({ x, y, width, height, src }))
     setdata(file.data)
     setSrc(null)
+    props.getImageUrl({ name: props.name, value: file.data })
   }
   async function getImageSrc(event) {
     const file = await dispatch(uploadImage(event.target.files[0]))
@@ -39,11 +40,12 @@ function Cropper(props) {
         </div>
       </div>
       {src && (
-        <div className="[ w-60-percent mx-auto ]">
+        <div className="[ w-50-percent mx-auto ]">
           <CropperJS
             ref={cropper}
             src={STATICURL + src}
-            aspectRatio={14 / 9}
+            style={{ height: 300, width: '100%' }}
+            aspectRatio={props.x / props.y}
             scalable
             zoomable={false}
             viewMode={2}
@@ -60,7 +62,7 @@ function Cropper(props) {
           </Button>
         </div>
       )}
-      {data && <img className="[ mt-2-0 w-30-percent ml-30-percent ]" src={STATICURL + data} alt="" />}
+      {data && <img className="[ mt-2-0 w-50-percent mx-auto ]" src={STATICURL + data} alt="" />}
     </>
   )
 }
