@@ -9,7 +9,7 @@ function Page(props) {
       <PageHeader title="Projects" />
       <section className="box-shadow [ bg-white text-1-5 ]">
         <SectionHead>{props.head}</SectionHead>
-        <SectionBody>{props.body}</SectionBody>
+        <SectionBody elems={props.body} />
       </section>
     </main>
   )

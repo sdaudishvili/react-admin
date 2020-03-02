@@ -35,7 +35,7 @@ function NewProject() {
   }
 
   function onCancel() {
-    setData('')
+    setData({ published: false })
   }
   function setPublishStatus() {
     setData({ ...data, published: !data.published })
