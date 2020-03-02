@@ -85,7 +85,6 @@
   "scripts": {
     "tailwind-dev": "postcss tailwindcss/tailwind.src.css -o src/assets/tailwind.css -w",
     "tailwind-prod": "postcss tailwindcss/tailwind.src.css -o src/assets/tailwind.css",
-
     "dev": "concurrently \"npm run tailwind-dev\" \"webpack-dev-server --open --mode development\"",
     "build": "concurrently \"npm run tailwind-prod\" \"webpack --mode production\"",
     "start": "webpack-dev-server --open --mode production"
